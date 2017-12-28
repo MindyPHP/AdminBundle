@@ -19,7 +19,7 @@
         "psr-4": {
             "Mindy\\Bundle\\AdminBundle\\Tests\\": ""
         }
-    }
+    },
     "require": {
         "php": ">=7.0"
     },
