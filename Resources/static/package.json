@@ -7,7 +7,7 @@
     "webpack": "webpack --progress --colors --watch",
     "watch": "gulp watch",
     "clean": "gulp clean",
-    "build:js": "webpack --progress --colors",
+    "build:js": "webpack -p --colors",
     "build:static": "gulp",
     "build": "cross-env NODE_ENV=production npm-run-all clean build:js build:static"
   },

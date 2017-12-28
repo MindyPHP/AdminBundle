@@ -16,9 +16,8 @@ module.exports = {
         admin: [
             // We ship a few polyfills by default:
             require.resolve('./polyfills'),
-
-            './js/index.js',
-        ],
+            './js/index.js'
+        ]
     },
     output: {
         path: path.resolve(path.join(__dirname, '/../public/js')),
@@ -86,19 +85,6 @@ module.exports = {
         new CaseSensitivePathsPlugin,
         new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                screw_ie8: true, // React doesn't support IE8
-                warnings: false
-            },
-            mangle: {
-                screw_ie8: true
-            },
-            output: {
-                comments: false,
-                screw_ie8: true
-            }
-        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(env)
