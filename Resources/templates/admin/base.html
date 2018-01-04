@@ -2,62 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="robots" content="noindex, nofollow"/>
-    <title>{%- block title -%}Рабочий стол{% endblock %} - Панель администратора - Mindy</title>
-
-    <link rel="stylesheet" href="/bundles/admin/css/admin.bundle.css"/>
-    <script type='text/javascript' src="{{ asset('/bundles/admin/js/admin.bundle.js') }}"></script>
-
-    {% block css %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления</title>
+    {% block header %}
+        <link rel="stylesheet" href="/bundles/admin/css/bundle.css"/>
+    {% endblock %}
 </head>
-{% set open_sidebar = request.cookies.get('__sidebar_pin', 'true') == 'true' %}
-<body>
+<body class="b-body {% block body_class %}{% endblock %}">
 
-<div class="b-sidebar-buttons {{ open_sidebar ? 'b-sidebar-buttons_open' : '' }}">
-    <a class="b-sidebar-buttons__button b-sidebar-buttons__button_toggle" href="#">
-        <i class="b-icon">&#xE5D2;</i>
-    </a>
-    <a class="b-sidebar-buttons__button b-sidebar-buttons__button_pin {{ open_sidebar ? 'b-sidebar-buttons__button_pinned' : '' }}"
-       href="#">
-        <i class="b-icon">&#xE915;</i>
-    </a>
-</div>
-
-<div class="b-sidebar {{ open_sidebar ? 'b-sidebar_open b-sidebar_pin' : '' }}">
-    {{ admin_menu()|safe }}
-</div>
-
-<div class="b-page {{ open_sidebar ? 'b-page_padding' : '' }}">
-    <header class="b-header {{ open_sidebar ? 'b-header_padding' : '' }}">
-        <div class="b-header__panel b-header__panel_full">
-            {% block breadcrumbs %}
-                {% include "admin/_breadcrumbs.html" %}
-            {% endblock breadcrumbs %}
+{% if is_granted('ROLE_ADMIN') %}
+    <div class="b-header">
+        <div class="b-row">
+            <div class="b-col b-col_small_10">
+                <div class="b-pane">
+                    <div class="b-header__menu">
+                        <a href="{{ url("admin_dashboard_index") }}" class="b-header__link">Рабочий стол</a>
+                        <div class="b-header__item b-header__item_sub">
+                            <div class="b-header__link">Магазин</div>
+                            <div class="b-header__sub">
+                                <a class="b-header__sublink" href="{{ url('admin_rise_order_order_list') }}">Заказы</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_product_list') }}">Товары</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_product_category_list') }}">Категории</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_product_collection_list') }}">Коллекции</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_order_customer_list') }}">Клиенты</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_cart_cart_list') }}">Корзины
+                                    покупателей</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_market_shop') }}">Магазин ВКонтакте</a>
+                            </div>
+                        </div>
+                        <div class="b-header__item b-header__item_sub">
+                            <div class="b-header__link">Сайт</div>
+                            <div class="b-header__sub">
+                                <a class="b-header__sublink" href="{{ url('file_list') }}">Файлы</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_user_user_list') }}">Пользователи</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_slider_slider_list') }}">Слайды</a>
+                                <a class="b-header__sublink" href="{{ url('admin_rise_page_page_list') }}">Страницы</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_menu_list') }}">Меню</a>
+                            </div>
+                        </div>
+                        <div class="b-header__item b-header__item_sub">
+                            <div class="b-header__link">Настройки</div>
+                            <div class="b-header__sub">
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_product_entity_list') }}">Сущности</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_product_attribute_list') }}">Аттрибуты</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_product_label_list') }}">Метки</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_delivery_delivery_list') }}">Способы доставки</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_payment_payment_list') }}">Способы оплаты</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_order_status_list') }}">Статусы</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('settings') }}">Система</a>
+                            </div>
+                        </div>
+                        <div class="b-header__item b-header__item_sub">
+                            <div class="b-header__link">Мета информация</div>
+                            <div class="b-header__sub">
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_seo_seo_list') }}">Мета информация</a>
+                                <a class="b-header__sublink"
+                                   href="{{ url('admin_rise_seo_template_list') }}">СЕО шаблоны</a>
+                            </div>
+                        </div>
+                        <a href="{{ url("admin_logout") }}" class="b-header__link">Выход</a>
+                    </div>
+                </div>
+            </div>
+            <div class="b-col b-col_small_2">
+                <div class="b-logo">Панель управления</div>
+            </div>
         </div>
-        <div class="b-header__panel">
-            <div class="b-header__user">{{ user.getUsername() }}</div>
+    </div>
+
+    {% block breadcrumbs %}
+        <div class="b-breadcrumb">
+            <div class="b-breadcrumb__item">
+                <a class="b-breadcrumb__item b-breadcrumb__item_link"
+                   href="{{ url('admin_dashboard_index') }}">
+                    <i class="b-icon">home</i>
+                </a>
+            </div>
+
+            <div class="b-breadcrumb__symbol"></div>
+
+            {% if breadcrumbs %}
+                {% for bc in breadcrumbs %}
+                    <div class="b-breadcrumb__item">
+                        {% if bc.url %}
+                            <a class="b-breadcrumb__item_link"
+                               href="{{ bc.url }}">{{ bc.name }}</a>
+                        {% else %}
+                            <span class="b-breadcrumb__item">{{ bc.name }}</span>
+                        {% endif %}
+                    </div>
+                    {% if not loop.last %}
+                        <div class="b-breadcrumb__symbol"></div>
+                    {% endif %}
+                {% endfor %}
+
+            {% endif %}
         </div>
-    </header>
+    {% endblock %}
 
-    {% block flash %}
-        {% include "admin/_flash.html" %}
-    {% endblock flash %}
+    {% include "admin/_flash.html" %}
+{% endif %}
 
-    {% block content %}
-    {% endblock content %}
-    <footer class="b-footer">
+<div class="b-content">
+    <div class="b-row">
         <div class="b-col b-col_small_12">
-            <p class="b-footer__text">
-                <a class="b-footer__link" href="http://mindy-cms.com" target="_blank">Mindy Framework</a> &copy;
-                Проект разработан <a class="b-footer__link" href="http://studio107.ru"
-                                     target="_blank">Studio107</a> &copy;
-                Запрещено использование для коммерческих проектов без предварительного письменного согласия
-                автора.
-            </p>
+            {% block content %}
+            {% endblock content %}
         </div>
-    </footer>
+    </div>
 </div>
-{% block javascript %}{% endblock %}
+
+<script type="text/javascript" src="/bundles/admin/js/bundle.js"></script>
+{% block js %}{% endblock %}
 </body>
 </html>

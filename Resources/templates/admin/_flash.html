@@ -1,11 +1,7 @@
-<ul class="b-flash-list">
-    {% set flashTypes = ['admin_success', 'admin_notice', 'admin_error', 'admin_warning'] %}
-    {% for type in flashTypes %}
-        {% for message in request.getSession().getFlashBag().get(type, []) %}
-            <li class="b-flash b-flash_{{ type|replace('admin_', '')|lower }}">
-                <i class="b-flash-icon">&times;</i>
-                {{ message }}
-            </li>
+<div class="b-flash-list">
+    {% for type in ['success', 'info', 'error', 'warning'] %}
+        {% for flash in request.getSession().getFlashBag().get(type, []) %}
+            <div class="b-flash b-flash_{{ type }}">{{ flash }}</div>
         {% endfor %}
     {% endfor %}
-</ul>
+</div>

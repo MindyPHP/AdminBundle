@@ -15,7 +15,6 @@ namespace Mindy\Bundle\AdminBundle\Controller;
 use Mindy\Bundle\AdminBundle\Form\LoginForm;
 use Mindy\Bundle\MindyBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminController extends Controller
 {
@@ -24,7 +23,7 @@ class AdminController extends Controller
      *
      * @return Response
      */
-    protected function preventCache(Response $response)
+    protected function preventCache(Response $response): Response
     {
         $response->headers->addCacheControlDirective('no-cache', true);
         $response->headers->addCacheControlDirective('max-age', 0);
@@ -34,8 +33,10 @@ class AdminController extends Controller
         return $response;
     }
 
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login()
     {
+        $authenticationUtils = $this->get('security.authentication_utils');
+
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user

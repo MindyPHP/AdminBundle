@@ -18,9 +18,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DashboardController extends Controller
 {
-    public function list(Registry $registry, Request $request)
+    public function list(Request $request)
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $registry = $this->get(Registry::class);
 
         return $this->render('admin/dashboard/index.html', [
             'widgets' => $registry->all(),
