@@ -8,63 +8,30 @@
         <link rel="stylesheet" href="http://localhost:8080/build/css/app.css"/>
     {% endblock %}
 </head>
-<body class="b-body {% block body_class %}{% endblock %}">
-
-{% if is_granted('ROLE_ADMIN') %}
-    <div class="b-header">
-        <div class="b-row">
-            <div class="b-col b-col_small_10">
-                <div class="b-pane">
-                    <div class="b-header__menu">
-                        {{ admin_menu()|safe }}
-                    </div>
-                </div>
-            </div>
-            <div class="b-col b-col_small_2">
-                <div class="b-logo">Панель управления</div>
-            </div>
-        </div>
-    </div>
-
-    {% block breadcrumbs %}
-        <div class="b-breadcrumb">
-            {% if breadcrumbs %}
-                <div class="b-breadcrumb__item">
-                    <a class="b-breadcrumb__item b-breadcrumb__item_link"
-                       href="{{ url('admin_dashboard_index') }}">
-                        <i class="b-icon">home</i>
-                    </a>
-                </div>
-
-                <div class="b-breadcrumb__symbol"></div>
-
-                {% for bc in breadcrumbs %}
-                    <div class="b-breadcrumb__item">
-                        {% if bc.url %}
-                            <a class="b-breadcrumb__item_link"
-                               href="{{ bc.url }}">{{ bc.name }}</a>
-                        {% else %}
-                            <span class="b-breadcrumb__item">{{ bc.name }}</span>
-                        {% endif %}
-                    </div>
-                    {% if not loop.last %}
-                        <div class="b-breadcrumb__symbol"></div>
-                    {% endif %}
-                {% endfor %}
-
-            {% endif %}
-        </div>
-    {% endblock %}
-
-{% endif %}
+<body class="b-body{% block body_class %}{% endblock %}">
 
 <div class="b-content">
-    <div class="b-row">
-        <div class="b-col b-col_small_12">
-            {% include "admin/_flash.html" %}
+    <div class="b-wrapper">
+        <div class="b-row">
+            <div class="b-col b-col_small_12 b-col_medium_2">
+                <div class="b-sidebar__menu">
+                    {{ admin_menu()|safe }}
+                </div>
+            </div>
+            <div class="b-col b-col_small_12 b-col_medium_10">
+                <div class="b-row">
+                    <div class="b-col b-col_small_12">
+                        {% include "admin/_flash.html" %}
 
-            {% block content %}
-            {% endblock content %}
+                        {% block breadcrumbs %}
+                            {% include "admin/_breadcrumbs.html" %}
+                        {% endblock %}
+
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

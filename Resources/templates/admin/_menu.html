@@ -1,31 +1,39 @@
-<a href="{{ url("admin_dashboard_index") }}" class="b-header__link">Рабочий стол</a>
+{% macro link_content(text, icon) %}
+    <span class="b-sidebar__icon">{{ icon }}</span>
+    <span class="b-sidebar__text">{{ text }}</span>
+{% endmacro %}
+
+<div class="b-sidebar__item">
+    <a href="{{ url("admin_dashboard_index") }}" class="b-sidebar__link">
+        {% call link_content('Рабочий стол', '&#xE871;') %}
+    </a>
+</div>
 {% for node in menu %}
     {% set children = node.getChildren() %}
-    {% if children|length > 0 %}
-        <div class="b-header__item b-header__item_sub">
-            <a class="b-header__link" href="{{ node.getUrl() }}">
-                {% if node.getIcon() %}
-                    <span class="b-header__icon">{{ node.getIcon() }}</span>
-                {% endif %}
-
-                {{ node.getName() }}
+    <div class="b-sidebar__item{% if children|length > 0 %} b-sidebar__item_sub{% endif %}">
+        {% if node.getUrl() %}
+            <a href="{{ node.getUrl() }}" class="b-sidebar__link">
+                {% call link_content(node.getName(), node.getIcon()) %}
             </a>
-            <div class="b-header__sub">
+        {% else %}
+            <div class="b-sidebar__link">
+                {% call link_content(node.getName(), node.getIcon()) %}
+            </div>
+        {% endif %}
+
+        {% if children|length > 0 %}
+            <div class="b-sidebar__sub">
                 {% for child in children %}
-                    <a class="b-header__sublink" href="{{ child.getUrl() }}">
+                    <a class="b-sidebar__sublink" href="{{ child.getUrl() }}">
                         {{ child.getName() }}
                     </a>
                 {% endfor %}
             </div>
-        </div>
-    {% else %}
-        <a href="{{ node.getUrl() }}" class="b-header__link">
-            {% if node.getIcon() %}
-                <span class="b-header__icon">{{ node.getIcon() }}</span>
-            {% endif %}
-
-            {{ node.getName() }}
-        </a>
-    {% endif %}
+        {% endif %}
+    </div>
 {% endfor %}
-<a href="{{ url("admin_logout") }}" class="b-header__link">Выход</a>
+<div class="b-sidebar__item">
+    <a href="{{ url("admin_logout") }}" class="b-sidebar__link">
+        {% call link_content('Выход') %}
+    </a>
+</div>
