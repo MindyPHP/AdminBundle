@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Панель управления</title>
     {% block header %}
-        <link rel="stylesheet" href="/bundles/admin/css/bundle.css"/>
+        <link rel="stylesheet" href="http://localhost:8080/build/css/app.css"/>
     {% endblock %}
 </head>
 <body class="b-body {% block body_class %}{% endblock %}">
@@ -28,16 +28,16 @@
 
     {% block breadcrumbs %}
         <div class="b-breadcrumb">
-            <div class="b-breadcrumb__item">
-                <a class="b-breadcrumb__item b-breadcrumb__item_link"
-                   href="{{ url('admin_dashboard_index') }}">
-                    <i class="b-icon">home</i>
-                </a>
-            </div>
-
-            <div class="b-breadcrumb__symbol"></div>
-
             {% if breadcrumbs %}
+                <div class="b-breadcrumb__item">
+                    <a class="b-breadcrumb__item b-breadcrumb__item_link"
+                       href="{{ url('admin_dashboard_index') }}">
+                        <i class="b-icon">home</i>
+                    </a>
+                </div>
+
+                <div class="b-breadcrumb__symbol"></div>
+
                 {% for bc in breadcrumbs %}
                     <div class="b-breadcrumb__item">
                         {% if bc.url %}
@@ -56,19 +56,20 @@
         </div>
     {% endblock %}
 
-    {% include "admin/_flash.html" %}
 {% endif %}
 
 <div class="b-content">
     <div class="b-row">
         <div class="b-col b-col_small_12">
+            {% include "admin/_flash.html" %}
+
             {% block content %}
             {% endblock content %}
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="/bundles/admin/js/bundle.js"></script>
+<script type="text/javascript" src="http://localhost:8080/build/js/app.js"></script>
 {% block js %}{% endblock %}
 </body>
 </html>

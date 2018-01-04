@@ -1,0 +1,6 @@
+.b-body {
+  @include antialias;
+  background: {
+    color: #f2f4f8;
+  }
+}

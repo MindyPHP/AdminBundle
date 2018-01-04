@@ -3,8 +3,13 @@
     {% set children = node.getChildren() %}
     {% if children|length > 0 %}
         <div class="b-header__item b-header__item_sub">
-            <a class="b-header__link"
-                 href="{{ node.getUrl() }}">{{ node.getName() }}</a>
+            <a class="b-header__link" href="{{ node.getUrl() }}">
+                {% if node.getIcon() %}
+                    <span class="b-header__icon">{{ node.getIcon() }}</span>
+                {% endif %}
+
+                {{ node.getName() }}
+            </a>
             <div class="b-header__sub">
                 {% for child in children %}
                     <a class="b-header__sublink" href="{{ child.getUrl() }}">
@@ -14,7 +19,11 @@
             </div>
         </div>
     {% else %}
-        <a href="{{ url("admin_dashboard_index") }}" class="b-header__link">
+        <a href="{{ node.getUrl() }}" class="b-header__link">
+            {% if node.getIcon() %}
+                <span class="b-header__icon">{{ node.getIcon() }}</span>
+            {% endif %}
+
             {{ node.getName() }}
         </a>
     {% endif %}

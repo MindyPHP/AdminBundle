@@ -24,6 +24,10 @@ class AdminMenuNode extends MenuNode
     /**
      * @var string
      */
+    protected $icon;
+    /**
+     * @var string
+     */
     protected $route;
     /**
      * @var array
@@ -42,10 +46,23 @@ class AdminMenuNode extends MenuNode
 
         if (array_key_exists('route', $properties)) {
             $this->setRoute($properties['route']);
-            unset($properties['route']);
+        }
+
+        if (array_key_exists('icon', $properties)) {
+            $this->setIcon($properties['icon']);
         }
 
         parent::__construct($properties);
+    }
+
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+    }
+
+    public function getIcon()
+    {
+        return $this->icon;
     }
 
     /**

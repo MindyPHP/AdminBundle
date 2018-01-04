@@ -1,0 +1,23 @@
+.b-heading {
+  font-weight: bold;
+  @include antialias;
+  font-size: 1.4em;
+
+  border-bottom: 1px solid rgba(#000, 0.05);
+  padding-bottom: .5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    background-color: #047bf8;
+    width: 18px;
+    height: 6px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+  }
+}

@@ -1,7 +1,5 @@
-<div class="b-flash-list">
-    {% for type in ['success', 'info', 'error', 'warning'] %}
-        {% for flash in request.getSession().getFlashBag().get(type, []) %}
-            <div class="b-flash b-flash_{{ type }}">{{ flash }}</div>
-        {% endfor %}
+{% for type, messages in request.getSession().getFlashBag().all() %}
+    {% for message in messages %}
+        <div class="b-flash b-flash_{{ type }}">{{ message }}</div>
     {% endfor %}
-</div>
+{% endfor %}
