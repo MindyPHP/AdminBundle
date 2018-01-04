@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Mindy\Bundle\AdminBundle\Menu;
 
-use Mindy\Menu\Generator;
+use Symfony\Component\Routing\RouterInterface;
 
 class AdminMenu
 {
@@ -24,11 +24,14 @@ class AdminMenu
     /**
      * AdminMenu constructor.
      *
+     * @param RouterInterface $router
      * @param array $nodes
      */
-    public function __construct(array $nodes)
+    public function __construct(RouterInterface $router, array $nodes)
     {
-        $this->menu = iterator_to_array(Generator::fromArray($nodes));
+        foreach ($nodes as $node) {
+            $this->menu[] = new AdminMenuNode($router, $node);
+        }
     }
 
     /**

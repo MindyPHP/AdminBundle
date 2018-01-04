@@ -37,8 +37,6 @@ class AdminExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $adminMenuDefinition = $container->getDefinition(AdminMenu::class);
-        $adminMenuDefinition->setArguments([
-            $config['menu'],
-        ]);
+        $adminMenuDefinition->setArgument(1, $config['menu']);
     }
 }
