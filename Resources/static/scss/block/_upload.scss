@@ -1,0 +1,66 @@
+#progress {
+  $height: 26px;
+
+  display: block;
+  width: 100%;
+  height: $height;
+  border-radius: 4px;
+  background: {
+    color: #fafafa;
+  }
+  transition: all .2s ease;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  .progress-state {
+    height: $height;
+    line-height: $height;
+    text-align: center;
+    width: 60%;
+    background: {
+      color: flexy-color();
+    }
+    color: #fff;
+    font-size: .9rem;
+    border-radius: 4px;
+  }
+}
+
+#dropzone {
+  background: {
+    color: rgba(#fafafa, 40%);
+  }
+  border: 2px dashed #e1e1e1;
+  text-align: center;
+  transition: border-radius 0.2s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  padding: 40px 0;
+
+  &.in {
+    display: block;
+  }
+}
+
+.file-manager__upload {
+  display: block;
+  padding: 10px;
+  background: {
+    color: #fafafa;
+  }
+  border: 2px dashed #e1e1e1;
+  margin: 10px 0;
+
+  &.is-dragover {
+    border-color: flexy-color();
+  }
+}

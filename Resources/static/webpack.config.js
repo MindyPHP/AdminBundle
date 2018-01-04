@@ -1,31 +1,20 @@
-'use strict';
-
-let webpack = require('webpack'),
-    WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin'),
-    CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'),
+var webpack = require('webpack'),
     path = require('path');
 
-const env = process.env.NODE_ENV || 'development';
-const isProd = env === 'production';
-
 module.exports = {
-    devtool: isProd ? 'cheap-source-map' : 'eval',
-    context: __dirname, // string (absolute path!)
-    target: "web",
-    entry: {
-        admin: [
-            // We ship a few polyfills by default:
-            require.resolve('./polyfills'),
-            './js/index.js'
-        ]
-    },
+    entry: "./js/index",
     output: {
         path: path.resolve(path.join(__dirname, '/../public/js')),
-        filename: "[name].bundle.js",
-        libraryTarget: 'umd'
+        filename: "bundle.js"
+        // publicPath: "/assets/"
     },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
+            },
             {
                 test: require.resolve('jquery'),
                 use: [
@@ -34,60 +23,38 @@ module.exports = {
                 ]
             },
             {
-                test: require.resolve('./js/api'),
-                use: [{ loader: 'expose-loader', options: 'api' }]
-            },
-            {
-                test: require.resolve('./js/notify'),
-                use: [{ loader: 'expose-loader', options: 'notify' }]
-            },
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    // This is a feature of `babel-loader` for webpack (not Babel itself).
-                    // It enables caching results in ./node_modules/.cache/babel-loader/
-                    // directory for faster rebuilds.
-                    cacheDirectory: true
-                }
-            },
-            {
-                test: /\.json$/,
-                loader: "json-loader"
+                test: require.resolve('./js/mindy'),
+                use: [
+                    { loader: 'expose-loader', options: 'mindy' }
+                ]
             }
         ]
     },
     resolve: {
-        modules: [
-            path.resolve(__dirname, "js"),
-            "node_modules",
-        ],
-        extensions: [".js", ".json", ".jsx"],
+        // options for resolving module requests
+        // (does not apply to resolving to loaders)
         alias: {
-            "jquery-ui/widget": "jquery-ui/ui/widget.js"
-        }
+            "jquery-ui/ui/widget": "blueimp-file-upload/js/vendor/jquery.ui.widget.js",
+        },
+        modules: [
+            "node_modules",
+            path.resolve(__dirname, "js")
+        ],
+        extensions: [".js", ".json", ".jsx"]
     },
+    devtool: "eval", // enum
+    context: __dirname, // string (absolute path!)
+    target: "web",
+    externals: ["react"],
     plugins: [
-        new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.ProvidePlugin({
-            'window.$': 'jquery',
+            'Promise': 'bluebird',
+            'jQuery': 'jquery',
             '$': 'jquery',
-            'window.jQuery': 'jquery',
-            'jQuery': 'jquery'
         }),
-        // Moment.js is an extremely popular library that bundles large locale files
-        // by default due to how Webpack interprets its code. This is a practical
-        // solution that requires the user to opt into importing specific locales.
-        // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
-        // You can remove this if you don't use Moment.js:
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        new CaseSensitivePathsPlugin,
-        new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(env)
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
             }
         })
     ]

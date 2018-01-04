@@ -1,0 +1,17 @@
+.b-product-image {
+  background: {
+    color: #fff;
+  }
+  box-shadow: 0 4px 8px rgba(#000, 0.1);
+  border-radius: $flexy-theme-border-radius;
+
+  &__image {
+    @extend .b-image;
+    margin: 0 auto;
+  }
+
+  &__panel {
+    padding: 1em;
+    box-sizing: border-box;
+  }
+}

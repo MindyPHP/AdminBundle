@@ -1,0 +1,7 @@
+.b-logo {
+  font-size: 1.1em;
+  @include antialias;
+  text-decoration: none;
+  float: right;
+  color: flexy-color(gray);
+}

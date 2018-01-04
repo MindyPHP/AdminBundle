@@ -1,54 +1,75 @@
 .b-header {
-  box-sizing: border-box;
-  height: $header-height;
-  line-height: $header-height;
   background: {
-    color: $body-bg;
+    color: #fff;
   }
-  padding: 0 0 0 40px;
-  border-bottom: 1px solid darken(#fafafa, 10%);
-  display: flex;
+  @extend .m-block-shadow;
+  padding: 1em;
+  box-sizing: border-box;
+  margin-bottom: 2em;
 
-  &_padding {
-    padding-left: 0;
-  }
+  &__link {
+    color: flexy-color(dark);
+    margin-right: 1em;
+    font-size: 1.1em;
+    @include antialias;
+    text-decoration: none;
 
-  &__panel {
-    padding: 0 10px;
-
-    &_full {
-      flex: 1;
+    &:hover {
+      color: flexy-color();
     }
   }
 
-  &__user {
-    color: $asbestos;
-    padding-right: 10px;
-    display: inline-block;
+  &__menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
-  &__burger {
-    display: inline !important;
-  }
-
-  &__current-page {
-    margin-left: 10px;
-  }
-}
-
-.b-logo {
-  width: 40px;
-  height: 40px;
-  filter: grayscale(20%);
-
-  &_center {
-    margin: 0 auto;
-  }
-
-  &__img {
-    svg {
-      width: auto;
-      height: 40px;
+  &__item {
+    &_sub {
+      &:hover {
+        .b-header__sub {
+          visibility: visible;
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
     }
+  }
+
+  &__sublink {
+    color: flexy-color(dark);
+    display: block;
+    padding: .2em .5em;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    @include antialias;
+    text-decoration: none;
+
+    &:hover {
+      color: flexy-color();
+      text-decoration: none;
+      background: {
+        color: rgba(flexy-color(), .1);
+      }
+    }
+  }
+
+  &__sub {
+    padding: .5em 0;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.85);
+    transition: all .4s ease;
+    position: absolute;
+    left: auto;
+    top: auto;
+    z-index: 100;
+    background: {
+      color: #fff;
+    }
+    box-shadow: 0 8px 16px rgba(#000, 0.2);
+    border-radius: $flexy-theme-border-radius;
   }
 }

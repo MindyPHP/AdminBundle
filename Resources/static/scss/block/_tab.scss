@@ -1,0 +1,11 @@
+.b-tab {
+  &__tab {
+    &_active, &:hover {
+      background: {
+        color: transparent;
+      }
+      color: flexy-color();
+      border-bottom: 2px solid flexy-color();
+    }
+  }
+}

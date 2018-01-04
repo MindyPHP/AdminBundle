@@ -1,0 +1,27 @@
+.b-comment {
+  background: {
+    color: #fff;
+  }
+  margin-bottom: 1em;
+  transition: box-shadow .4s ease;
+
+  &__comment {
+    padding: .5em 1em;
+    box-sizing:  border-box;
+  }
+
+  &__user {
+    font-weight: bold;
+    @include antialias;
+  }
+
+  &__header {
+    border-bottom: 1px solid flexy-color(divider);
+    padding: .5em 1em;
+    box-sizing:  border-box;
+  }
+
+  &__date {
+    color: flexy-color(gray);
+  }
+}

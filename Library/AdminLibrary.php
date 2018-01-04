@@ -41,7 +41,7 @@ class AdminLibrary extends AbstractLibrary
         return [
             'admin_menu' => function ($template = 'admin/_menu.html') {
                 return $this->templateEngine->render($template, [
-                    'adminMenu' => $this->adminMenu->getMenu(),
+                    'menu' => $this->adminMenu->getMenu(),
                 ]);
             },
         ];

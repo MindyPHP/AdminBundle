@@ -1,3 +1,8 @@
-import PNotify from 'pnotify';
+import Noty from 'noty';
 
-export default (opts = {}) => new PNotify(opts)
+const defaultOptions = {
+    timeout: 3000,
+    theme: 'mint'
+};
+
+export default opts => new Noty({ ...defaultOptions, ...opts }).show();

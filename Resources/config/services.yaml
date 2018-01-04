@@ -5,6 +5,9 @@ services:
         public: false
 
     _instanceof:
+        Mindy\Bundle\AdminBundle\Dashboard\Registry:
+            public: true
+
         Mindy\Template\Library\LibraryInterface:
             public: true
             tags: ['template.library']

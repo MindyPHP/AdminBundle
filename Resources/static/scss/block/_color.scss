@@ -1,0 +1,10 @@
+$color-width: 16px;
+$color-height: $color-width;
+
+.b-color {
+  width: $color-width;
+  height: $color-height;
+  border-radius: $flexy-theme-border-radius;
+  display: inline-block;
+  @include hide-text;
+}
