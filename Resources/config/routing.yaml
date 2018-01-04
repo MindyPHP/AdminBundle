@@ -1,0 +1,14 @@
+admin_dashboard_index:
+    path: /
+    defaults:
+        _controller: \Mindy\Bundle\AdminBundle\Controller\DashboardController::list
+
+admin_login:
+    path: /login
+    defaults:
+        _controller: \Mindy\Bundle\AdminBundle\Controller\AdminController::login
+
+admin_logout:
+    path: /logout
+    defaults:
+        _controller: \Mindy\Bundle\AdminBundle\Controller\AdminController::logout

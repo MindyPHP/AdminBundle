@@ -21,7 +21,8 @@
         }
     },
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "mindy/menu": "^1.0"
     },
     "authors": [
         {
@@ -29,5 +30,11 @@
             "email": "max@studio107.ru",
             "homepage": "http://studio107.ru"
         }
-    ]
+    ],
+    "require-dev": {
+        "mindy/form-bundle": ">=4.0.3",
+        "mindy/mindy-bundle": "~4.0",
+        "symfony/framework-bundle": "~3.0|~4.0",
+        "symfony/security-bundle": "~3.0|~4.0"
+    }
 }

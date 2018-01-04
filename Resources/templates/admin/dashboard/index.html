@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+
+{% block breadcrumbs %}
+    {% set breadcrumbs = [
+    ['name' => 'Рабочий стол']
+    ] %}
+    {% parent %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="b-heading">Рабочий стол</h1>
+    {% for widget in widgets %}
+        {{ widget.render()|safe }}
+        <div class="b-space"></div>
+    {% else %}
+        <div class="b-typeset">Виджеты отсутствуют</div>
+    {% endfor %}
+{% endblock %}

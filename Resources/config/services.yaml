@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Mindy\Template\Library\LibraryInterface:
+            public: true
+            tags: ['template.library']
+
+    Mindy\Bundle\AdminBundle\:
+        resource: '../../*'
+        exclude: '../../{Migrations,Model,Tests,vendor}'
+
+    Mindy\Bundle\AdminBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']

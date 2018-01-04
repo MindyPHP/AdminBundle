@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * This file is part of Mindy Framework.
+ * (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace Mindy\Bundle\AdminBundle\Admin;
+namespace Mindy\Bundle\AdminBundle\TemplateFinder;
 
-use Mindy\Finder\TemplateFinderInterface;
+use Mindy\Template\Finder\ChainFinder;
 
 /**
  * Class TemplateFinder.
@@ -29,18 +31,18 @@ class AdminTemplateFinder
         'admin/{template}',
     ];
     /**
-     * @var TemplateFinderInterface
+     * @var ChainFinder
      */
-    protected $templateFinder;
+    protected $finder;
 
     /**
      * TemplateFinder constructor.
      *
-     * @param TemplateFinderInterface $templateFinder
+     * @param ChainFinder $finder
      */
-    public function __construct(TemplateFinderInterface $templateFinder)
+    public function __construct(ChainFinder $finder)
     {
-        $this->templateFinder = $templateFinder;
+        $this->finder = $finder;
     }
 
     /**
@@ -58,7 +60,7 @@ class AdminTemplateFinder
      * @param $adminName
      * @param $template
      *
-     * @return string|void
+     * @return string
      */
     public function findTemplate($bundleName, $adminName, $template)
     {
@@ -68,9 +70,12 @@ class AdminTemplateFinder
                 '{admin}' => strtolower($this->normalizeString(str_replace('Admin', '', $adminName))),
                 '{template}' => $template,
             ]);
-            if ($this->templateFinder->find($path)) {
+
+            if ($this->finder->find($path)) {
                 return $path;
             }
         }
+
+        return null;
     }
 }

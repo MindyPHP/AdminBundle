@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * This file is part of Mindy Framework.
+ * (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Mindy\Bundle\AdminBundle;
 
-use Mindy\Bundle\AdminBundle\DependencyInjection\Compiler\AdminPass;
+use Mindy\Bundle\AdminBundle\DependencyInjection\Compiler\DashboardPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -18,6 +20,6 @@ class AdminBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(new AdminPass());
+        $container->addCompilerPass(new DashboardPass());
     }
 }

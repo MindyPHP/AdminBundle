@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * This file is part of Mindy Framework.
+ * (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Mindy\Bundle\AdminBundle\Admin\Handler;
@@ -45,9 +47,9 @@ class SortHandler implements AdminHandlerInterface
      * OrderHandler constructor.
      *
      * @param Request $request
-     * @param string $name
-     * @param string $column
-     * @param null $field
+     * @param string  $name
+     * @param string  $column
+     * @param null    $field
      */
     public function __construct(Request $request, $name, $column, $field = null)
     {
@@ -83,7 +85,7 @@ class SortHandler implements AdminHandlerInterface
 
     /**
      * @param QuerySet|Manager $qs
-     * @param array $ids
+     * @param array            $ids
      */
     public function sortFlat($qs, array $ids)
     {
@@ -108,7 +110,7 @@ class SortHandler implements AdminHandlerInterface
 
     /**
      * @param TreeQuerySet|TreeManager $qs
-     * @param array $ids
+     * @param array                    $ids
      */
     public function sortNestedSet($qs, array $ids)
     {
@@ -156,10 +158,10 @@ class SortHandler implements AdminHandlerInterface
                     ->update(['root' => $position]);
             }
         } else {
-            /** @var TreeModel $target */
+            /* @var TreeModel $target */
             if ($this->request->query->has('insertBefore')) {
                 $target = $model->objects()->get([
-                    'pk' => $this->request->query->get('insertBefore')
+                    'pk' => $this->request->query->get('insertBefore'),
                 ]);
                 if (null === $target) {
                     throw new NotFoundHttpException('Target not found');
@@ -168,7 +170,7 @@ class SortHandler implements AdminHandlerInterface
                 $model->moveBefore($target);
             } elseif ($this->request->query->has('insertAfter')) {
                 $target = $model->objects()->get([
-                    'pk' => $this->request->query->get('insertAfter')
+                    'pk' => $this->request->query->get('insertAfter'),
                 ]);
                 if (null === $target) {
                     throw new NotFoundHttpException('Target not found');

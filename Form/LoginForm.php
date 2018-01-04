@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * This file is part of Mindy Framework.
+ * (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Mindy\Bundle\AdminBundle\Form;
@@ -19,7 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Routing\RouterInterface;
 
-class AuthForm extends AbstractType
+class LoginForm extends AbstractType
 {
     /**
      * @var RouterInterface
@@ -40,7 +42,7 @@ class AuthForm extends AbstractType
     {
         $builder
             ->add('_target_path', HiddenType::class, [
-                'data' => $this->router->generate('admin_index'),
+                'data' => $this->router->generate('admin_dashboard_index'),
             ])
             ->add('_username', TextType::class, [
                 'label' => 'Имя пользователя',
