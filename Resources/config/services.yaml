@@ -9,6 +9,10 @@ services:
             public: true
             tags: ['template.library']
 
+        Mindy\Bundle\AdminBundle\Dashboard\WidgetInterface:
+            public: true
+            tags: ['dashboard.widget']
+
     Mindy\Bundle\AdminBundle\:
         resource: '../../*'
         exclude: '../../{Migrations,Model,Tests,vendor}'

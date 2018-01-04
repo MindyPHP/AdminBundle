@@ -30,7 +30,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('menu')
-                    ->defaultValue([])
+                    ->arrayPrototype()
+                    ->end()
                 ->end()
             ->end();
 

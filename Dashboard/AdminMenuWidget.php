@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Mindy\Bundle\AdminBundle\Dashboard;
 
 use Mindy\Bundle\AdminBundle\Menu\AdminMenu;
+use Mindy\Template\TemplateEngine;
 
 class AdminMenuWidget extends AbstractWidget
 {
@@ -20,32 +21,27 @@ class AdminMenuWidget extends AbstractWidget
      * @var AdminMenu
      */
     protected $adminMenu;
+    /**
+     * @var TemplateEngine
+     */
+    protected $templateEngine;
 
     /**
      * AdminMenuWidget constructor.
      *
-     * @param AdminMenu $adminMenu
+     * @param AdminMenu      $adminMenu
+     * @param TemplateEngine $templateEngine
      */
-    public function __construct(AdminMenu $adminMenu)
+    public function __construct(AdminMenu $adminMenu, TemplateEngine $templateEngine)
     {
         $this->adminMenu = $adminMenu;
+        $this->templateEngine = $templateEngine;
     }
 
-    /**
-     * @return string
-     */
-    public function getTemplate(): string
+    public function render(): string
     {
-        return 'admin/dashboard/menu.html';
-    }
-
-    /**
-     * @return array
-     */
-    public function getData(): array
-    {
-        return [
-            'adminMenu' => $this->adminMenu->getMenu(),
-        ];
+        return $this->templateEngine->render('admin/dashboard/menu.html', [
+            'menu' => $this->adminMenu->getMenu(),
+        ]);
     }
 }
