@@ -13,5 +13,6 @@ $flexy-theme-colors: (
         error: #dd162d,
         success: #4caf50,
         primary: #2196f3
-) !default;
+);
+$flexy-block-divider-default-color: rgba(#000, 0.05);
 $flexy-block-input-focus-color: map-get($flexy-theme-colors, default);

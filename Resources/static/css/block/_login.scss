@@ -1,9 +1,16 @@
 .b-login {
-  margin: 1em 0;
-  padding: 1em;
-  box-sizing: border-box;
-  background: {
-    color: #fff;
+  &__container {
   }
-  box-shadow: 0 8px 16px rgba(#000, 0.2);
+
+  &__form {
+    width: 480px;
+    padding: 2em;
+    margin: 2em auto;
+    box-sizing: border-box;
+    background: {
+      color: #fff;
+    }
+    border-radius: $flexy-theme-border-radius;
+    box-shadow: 0 0 40px rgba(#000, 0.1);
+  }
 }

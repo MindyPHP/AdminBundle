@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Панель управления</title>
     {% block header %}
-        <link rel="stylesheet" href="http://localhost:8080/build/css/app.css"/>
+        <link rel="stylesheet" href="/bundles/admin/build/css/app.css"/>
     {% endblock %}
 </head>
 <body class="b-body{% block body_class %}{% endblock %}">
@@ -21,11 +21,20 @@
             <div class="b-col b-col_small_12 b-col_medium_10">
                 <div class="b-row">
                     <div class="b-col b-col_small_12">
-                        {% include "admin/_flash.html" %}
+                        <div class="b-pane">
+                            <div>
+                                {% block breadcrumbs %}
+                                    {% include "admin/_breadcrumbs.html" %}
+                                {% endblock %}
+                            </div>
+                            <div>
+                                123
+                            </div>
+                        </div>
 
-                        {% block breadcrumbs %}
-                            {% include "admin/_breadcrumbs.html" %}
-                        {% endblock %}
+                        <div class="b-divider"></div>
+
+                        {% include "admin/_flash.html" %}
 
                         {% block content %}
                         {% endblock content %}
@@ -36,7 +45,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://localhost:8080/build/js/app.js"></script>
+<script type="text/javascript" src="/bundles/admin/build/js/app.js"></script>
 {% block js %}{% endblock %}
 </body>
 </html>

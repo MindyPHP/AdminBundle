@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <div class="b-breadcrumb__symbol"></div>
+        <div class="b-breadcrumb__symbol">&#xE315;</div>
 
         {% for bc in breadcrumbs %}
             <div class="b-breadcrumb__item">
@@ -19,7 +19,7 @@
                 {% endif %}
             </div>
             {% if not loop.last %}
-                <div class="b-breadcrumb__symbol"></div>
+                <div class="b-breadcrumb__symbol">&#xE315;</div>
             {% endif %}
         {% endfor %}
 

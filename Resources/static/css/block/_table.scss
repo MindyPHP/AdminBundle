@@ -2,6 +2,7 @@
   &__tr {
     &:hover {
       & > .b-table__td {
+        color: flexy-color();
         background: {
           color: #fafafa;
         }
