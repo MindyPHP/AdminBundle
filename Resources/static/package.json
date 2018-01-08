@@ -14,15 +14,23 @@
         "postcss-csso": "^3.0.0",
         "postcss-flexbugs-fixes": "^3.2.0",
         "postcss-loader": "^2.0.9",
+        "prettier": "^1.9.2",
         "sass-loader": "^6.0.6"
     },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "format": "prettier --trailing-comma es5 --single-quote --write \"{css,js}/**/*.{js,scss}\"",
         "dev-server": "encore dev-server",
         "dev-server-hot": "encore dev-server --hot",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production"
+    },
+    "dependencies": {
+        "jquery-ui": "^1.12.1",
+        "object-assign": "^4.1.1",
+        "promise": "^8.0.1",
+        "whatwg-fetch": "^2.0.3"
     }
 }
