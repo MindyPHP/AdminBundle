@@ -10,15 +10,17 @@
         <div class="b-breadcrumb__symbol">&#xE315;</div>
 
         {% for bc in breadcrumbs %}
-            <div class="b-breadcrumb__item">
-                {% if bc.url %}
-                    <a class="b-breadcrumb__item_link"
-                       href="{{ bc.url }}">{{ bc.name }}</a>
-                {% else %}
-                    <span class="b-breadcrumb__item">{{ bc.name }}</span>
-                {% endif %}
-            </div>
-            {% if not loop.last %}
+            {% if loop.last %}
+                <span class="b-breadcrumb__item">{{ bc.name }}</span>
+            {% else %}
+                <div class="b-breadcrumb__item">
+                    {% if bc.url %}
+                        <a class="b-breadcrumb__item_link"
+                           href="{{ bc.url }}">{{ bc.name }}</a>
+                    {% else %}
+                        {{ bc.name }}
+                    {% endif %}
+                </div>
                 <div class="b-breadcrumb__symbol">&#xE315;</div>
             {% endif %}
         {% endfor %}
