@@ -3,11 +3,11 @@
     color: #fff;
   }
   margin-bottom: 1em;
-  transition: box-shadow .4s ease;
+  transition: box-shadow 0.4s ease;
 
   &__comment {
-    padding: .5em 1em;
-    box-sizing:  border-box;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
   }
 
   &__user {
@@ -17,8 +17,8 @@
 
   &__header {
     border-bottom: 1px solid flexy-color(divider);
-    padding: .5em 1em;
-    box-sizing:  border-box;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
   }
 
   &__date {

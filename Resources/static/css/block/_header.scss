@@ -45,7 +45,7 @@
   &__sublink {
     color: flexy-color(dark);
     display: block;
-    padding: .2em .5em;
+    padding: 0.2em 0.5em;
     box-sizing: border-box;
     font-size: 1.1em;
     @include antialias;
@@ -55,18 +55,18 @@
       color: flexy-color();
       text-decoration: none;
       background: {
-        color: rgba(flexy-color(), .1);
+        color: rgba(flexy-color(), 0.1);
       }
     }
   }
 
   &__sub {
-    padding: .5em 0;
+    padding: 0.5em 0;
     box-sizing: border-box;
     opacity: 0;
     visibility: hidden;
-    transform: scale(.85);
-    transition: all .4s ease;
+    transform: scale(0.85);
+    transition: all 0.4s ease;
     position: absolute;
     left: auto;
     top: auto;

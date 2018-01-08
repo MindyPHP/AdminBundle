@@ -13,7 +13,9 @@ $(document)
 
                 if (data.status) {
                     $.get('', {}, data => {
-                        let $newContent = $(data).find('.b-filemanager__target');
+                        let $newContent = $(data).find(
+                            '.b-filemanager__target'
+                        );
                         $('.b-filemanager__target').replaceWith($newContent);
                     });
                 }

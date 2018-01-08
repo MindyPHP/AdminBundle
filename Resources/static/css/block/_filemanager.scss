@@ -5,12 +5,12 @@ $progress-height: 18px;
     border: {
       width: 2px;
       style: dashed;
-      color: rgba(flexy-color(gray), .4);
+      color: rgba(flexy-color(gray), 0.4);
     }
     margin: 1em 0;
     padding: 2em;
     background: {
-      color: rgba(flexy-color(gray), .1);
+      color: rgba(flexy-color(gray), 0.1);
     }
   }
 
@@ -23,7 +23,7 @@ $progress-height: 18px;
     background: {
       color: #fafafa;
     }
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &_visible {
       display: block;
@@ -58,11 +58,11 @@ $progress-height: 18px;
     text-align: center;
     @include antialias;
     padding: 3em 0;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
 
     &_in {
       background: {
-        color: rgba(flexy-color(), .1);
+        color: rgba(flexy-color(), 0.1);
       }
       display: block;
     }
@@ -81,7 +81,6 @@ $progress-height: 18px;
 
         td {
           &.b-filemanager__table-actions {
-
           }
 
           &.b-filemanager__table-icon {

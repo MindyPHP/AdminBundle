@@ -1,6 +1,7 @@
 .b-tab {
   &__tab {
-    &_active, &:hover {
+    &_active,
+    &:hover {
       background: {
         color: transparent;
       }

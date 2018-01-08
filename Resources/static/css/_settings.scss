@@ -1,18 +1,17 @@
-$flexy-theme-border-radius: .25em;
+$flexy-theme-border-radius: 0.25em;
 $flexy-font: 'Clear Sans', Lato, Roboto, Helvetica, Arial, sans-serif;
 $flexy-body-font-size: 15px;
 $flexy-body-text-color: #353535;
 $flexy-theme-colors: (
-        default: #2196f3,
-        dark: #3E4B5B,
-        //dark: #353535,
-        brown: darken(#96a8b2, 25%),
-        gray: rgba(#5a637e,0.49),
-        help: #B8B8B8,
-        divider: rgba(#D8D8D8, .38),
-        error: #dd162d,
-        success: #4caf50,
-        primary: #2196f3
+  default: #2196f3,
+  dark: #3e4b5b,
+  brown: darken(#96a8b2, 25%),
+  gray: rgba(#5a637e, 0.49),
+  help: #b8b8b8,
+  divider: rgba(#d8d8d8, 0.38),
+  error: #dd162d,
+  success: #4caf50,
+  primary: #2196f3
 );
 $flexy-block-divider-default-color: rgba(#000, 0.05);
 $flexy-block-input-focus-color: map-get($flexy-theme-colors, default);

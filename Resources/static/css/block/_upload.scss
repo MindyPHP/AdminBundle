@@ -8,7 +8,7 @@
   background: {
     color: #fafafa;
   }
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   opacity: 0;
 
   &.visible {
@@ -28,7 +28,7 @@
       color: flexy-color();
     }
     color: #fff;
-    font-size: .9rem;
+    font-size: 0.9rem;
     border-radius: 4px;
   }
 }

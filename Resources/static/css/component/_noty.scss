@@ -7,7 +7,7 @@ $corner-space: 20px;
   margin: 0;
   padding: 0;
   z-index: 9999999;
-  transform: translateZ(0) scale(1.0, 1.0);
+  transform: translateZ(0) scale(1, 1);
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
   filter: blur(0);
@@ -34,7 +34,7 @@ $corner-space: 20px;
   top: 5%;
   left: 50%;
   width: $default-width;
-  transform: translate(calc(-50% - .5px)) translateZ(0) scale(1.0, 1.0);
+  transform: translate(calc(-50% - 0.5px)) translateZ(0) scale(1, 1);
 }
 
 #noty_layout__topRight {
@@ -63,7 +63,7 @@ $corner-space: 20px;
   bottom: 5%;
   left: 50%;
   width: $default-width;
-  transform: translate(calc(-50% - .5px)) translateZ(0) scale(1.0, 1.0);
+  transform: translate(calc(-50% - 0.5px)) translateZ(0) scale(1, 1);
 }
 
 #noty_layout__bottomRight {
@@ -78,7 +78,8 @@ $corner-space: 20px;
   top: 50%;
   left: 50%;
   width: $default-width;
-  transform: translate(calc(-50% - .5px), calc(-50% - .5px)) translateZ(0) scale(1.0, 1.0);
+  transform: translate(calc(-50% - 0.5px), calc(-50% - 0.5px)) translateZ(0)
+    scale(1, 1);
 }
 
 #noty_layout__centerLeft {
@@ -86,7 +87,7 @@ $corner-space: 20px;
   top: 50%;
   left: $corner-space;
   width: $default-width;
-  transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1.0, 1.0);
+  transform: translate(0, calc(-50% - 0.5px)) translateZ(0) scale(1, 1);
 }
 
 #noty_layout__centerRight {
@@ -94,7 +95,7 @@ $corner-space: 20px;
   top: 50%;
   right: $corner-space;
   width: $default-width;
-  transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1);
+  transform: translate(0, calc(-50% - 0.5px)) translateZ(0) scale(1, 1);
 }
 
 .noty_progressbar {
@@ -110,13 +111,13 @@ $corner-space: 20px;
   width: 100%;
   background-color: #646464;
   opacity: 0.2;
-  filter: alpha(opacity=10)
+  filter: alpha(opacity=10);
 }
 
 .noty_bar {
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate(0, 0) translateZ(0) scale(1.0, 1.0);
-  transform: translate(0, 0) scale(1.0, 1.0);
+  -webkit-transform: translate(0, 0) translateZ(0) scale(1, 1);
+  transform: translate(0, 0) scale(1, 1);
   -webkit-font-smoothing: subpixel-antialiased;
   overflow: hidden;
 }
@@ -124,12 +125,12 @@ $corner-space: 20px;
 .noty_effects_open {
   opacity: 0;
   transform: translate(50%);
-  animation: noty_anim_in .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: noty_anim_in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-fill-mode: forwards;
 }
 
 .noty_effects_close {
-  animation: noty_anim_out .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: noty_anim_out 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-fill-mode: forwards;
 }
 
@@ -150,14 +151,14 @@ $corner-space: 20px;
   height: 20px;
   text-align: center;
   line-height: 20px;
-  background-color: rgba(0, 0, 0, .05);
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 2px;
   cursor: pointer;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .noty_close_button:hover {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .noty_modal {
@@ -166,24 +167,24 @@ $corner-space: 20px;
   height: 100%;
   background-color: #000;
   z-index: 10000;
-  opacity: .3;
+  opacity: 0.3;
   left: 0;
   top: 0;
 }
 
 .noty_modal.noty_modal_open {
   opacity: 0;
-  animation: noty_modal_in .3s ease-out;
+  animation: noty_modal_in 0.3s ease-out;
 }
 
 .noty_modal.noty_modal_close {
-  animation: noty_modal_out .3s ease-out;
+  animation: noty_modal_out 0.3s ease-out;
   animation-fill-mode: forwards;
 }
 
 @keyframes noty_modal_in {
   100% {
-    opacity: .3;
+    opacity: 0.3;
   }
 }
 
@@ -238,31 +239,31 @@ $corner-space: 20px;
 .noty_theme__mint.noty_type__alert,
 .noty_theme__mint.noty_type__notification {
   background-color: #fff;
-  border-bottom: 1px solid #D1D1D1;
-  color: #2F2F2F;
+  border-bottom: 1px solid #d1d1d1;
+  color: #2f2f2f;
 }
 
 .noty_theme__mint.noty_type__warning {
-  background-color: #FFAE42;
-  border-bottom: 1px solid #E89F3C;
+  background-color: #ffae42;
+  border-bottom: 1px solid #e89f3c;
   color: #fff;
 }
 
 .noty_theme__mint.noty_type__error {
-  background-color: #DE636F;
-  border-bottom: 1px solid #CA5A65;
+  background-color: #de636f;
+  border-bottom: 1px solid #ca5a65;
   color: #fff;
 }
 
 .noty_theme__mint.noty_type__info,
 .noty_theme__mint.noty_type__information {
-  background-color: #7F7EFF;
-  border-bottom: 1px solid #7473E8;
+  background-color: #7f7eff;
+  border-bottom: 1px solid #7473e8;
   color: #fff;
 }
 
 .noty_theme__mint.noty_type__success {
-  background-color: #AFC765;
-  border-bottom: 1px solid #A0B55C;
+  background-color: #afc765;
+  border-bottom: 1px solid #a0b55c;
   color: #fff;
 }

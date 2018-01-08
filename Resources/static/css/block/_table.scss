@@ -1,4 +1,12 @@
 .b-table {
+  &__td {
+    &_sort {
+      width: 32px;
+      text-align: center;
+      cursor: row-resize;
+    }
+  }
+
   &__tr {
     &:hover {
       & > .b-table__td {

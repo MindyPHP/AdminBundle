@@ -9,6 +9,4 @@ const notify = text => {
     new Noty({ text }).show();
 };
 
-export {
-    notify
-}
+export { notify };
