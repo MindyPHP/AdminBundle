@@ -8,6 +8,9 @@ services:
         Mindy\Bundle\AdminBundle\Dashboard\Registry:
             public: true
 
+        Mindy\Bundle\AdminBundle\Sort\SortFactory:
+            public: true
+
         Mindy\Template\Library\LibraryInterface:
             public: true
             tags: ['template.library']
