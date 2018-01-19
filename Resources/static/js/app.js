@@ -2,7 +2,7 @@ import "./polyfills";
 
 import "jquery-ui/ui/widget.js";
 import "jquery-ui/ui/widgets/sortable.js";
-// import './upload';
+import './upload';
 
 import $ from 'jquery';
 window.$ = $;
