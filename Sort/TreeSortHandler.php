@@ -111,7 +111,7 @@ class TreeSortHandler implements SortHandlerInterface
         if ($model->getIsRoot()) {
             $this->sortRoots($model, $data['models']);
         } else {
-            $this->sortChildren($model, $data['before'], $data['after']);
+            $this->sortChildren($model, $data['before'] ?? null, $data['after'] ?? null);
         }
     }
 }
