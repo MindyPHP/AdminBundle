@@ -21,7 +21,7 @@ services:
 
     Mindy\Bundle\AdminBundle\:
         resource: '../../*'
-        exclude: '../../{Migrations,Model,Tests,vendor}'
+        exclude: '../../{Migrations,Model,Tests,vendor,Resources}'
 
     Mindy\Bundle\AdminBundle\Controller\:
         resource: '../../Controller'

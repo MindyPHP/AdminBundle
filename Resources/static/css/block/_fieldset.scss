@@ -1,0 +1,8 @@
+.b-fieldset {
+  padding: 1em;
+  box-sizing: border-box;
+  border: 1px solid darken(flexy-color(divider), 10%);
+
+  &__legend {
+  }
+}
