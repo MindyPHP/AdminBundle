@@ -5,40 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Панель управления</title>
     {% block header %}
-        <link rel="stylesheet" href="/bundles/admin/build/css/app.css"/>
+        <link rel="stylesheet" href="/bundles/admin/css/app.css"/>
     {% endblock %}
 </head>
 <body class="b-body{% block body_class %}{% endblock %}">
 
-<div class="b-content">
-    <div class="b-wrapper">
-        <div class="b-row">
-            <div class="b-col b-col_small_12 b-col_medium_2">
-                <div class="b-sidebar__menu">
-                    {{ admin_menu()|safe }}
-                </div>
-            </div>
-            <div class="b-col b-col_small_12 b-col_medium_10">
-                <div class="b-row">
-                    <div class="b-col b-col_small_12">
-                        <div class="b-pane">
-                            <div>
-                                {% block breadcrumbs %}
-                                    {% include "admin/_breadcrumbs.html" %}
-                                {% endblock %}
-                            </div>
-                            <div>
-                                {{ current_user }}
-                            </div>
+<div class="b-site">
+    <div class="b-site__sidebar">
+        <div class="b-sidebar__logo">
+            <div class="b-logo">Mindy</div>
+        </div>
+        <div class="b-sidebar__menu">
+            {{ admin_menu()|safe }}
+        </div>
+    </div>
+    <div class="b-site__content">
+        <div class="b-wrapper">
+            <div class="b-row">
+                <div class="b-col b-col_small_12">
+                    <div class="b-pane">
+                        <div>
+                            {% block breadcrumbs %}
+                                {% include "admin/_breadcrumbs.html" %}
+                            {% endblock %}
                         </div>
-
-                        <div class="b-divider"></div>
-
-                        {% include "admin/_flash.html" %}
-
-                        {% block content %}
-                        {% endblock content %}
+                        <div>
+                            {{ current_user }}
+                        </div>
                     </div>
+
+                    {% include "admin/_flash.html" %}
+
+                    {% block content %}{% endblock %}
                 </div>
             </div>
         </div>
@@ -46,7 +44,7 @@
 </div>
 
 {% block js %}
-    <script type="text/javascript" src="/bundles/admin/build/js/app.js"></script>
+    <script type="text/javascript" src="/bundles/admin/js/app.js"></script>
 {% endblock %}
 </body>
 </html>

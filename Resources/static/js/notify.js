@@ -5,4 +5,6 @@ const defaultOptions = {
     theme: 'mint',
 };
 
-export default opts => new Noty({ ...defaultOptions, ...opts }).show();
+export default opts => {
+    return new Noty(Object.assign(defaultOptions, opts)).show();
+};

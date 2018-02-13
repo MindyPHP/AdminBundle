@@ -1,11 +1,11 @@
 {% macro link_content(text, icon) %}
-    <span class="b-sidebar__icon">{{ icon }}</span>
+    <i class="b-sidebar__icon {{ icon }}"></i>
     <span class="b-sidebar__text">{{ text }}</span>
 {% endmacro %}
 
 <div class="b-sidebar__item">
     <a href="{{ url("admin_dashboard_index") }}" class="b-sidebar__link">
-        {% call link_content('Рабочий стол', '&#xE871;') %}
+        {% call link_content('Рабочий стол', 'home') %}
     </a>
 </div>
 {% for node in menu %}

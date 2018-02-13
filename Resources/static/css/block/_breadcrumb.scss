@@ -1,15 +1,3 @@
 .b-breadcrumb {
-  box-sizing: border-box;
-  margin: 0.5em 0 0;
-
-  &__symbol {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-size: 18px;
-    padding: 0;
-
-    &::after {
-      display: none;
-    }
-  }
+  margin: 0.5em 0 2em;
 }

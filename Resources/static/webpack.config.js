@@ -1,19 +1,22 @@
 const Encore = require('@symfony/webpack-encore');
+const fixes = Encore.isProduction() ? [] : ['./hmr.js'];
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 Encore
-    .setOutputPath('../public/build/')
+    .setOutputPath('build/')
     .setPublicPath('/build')
+    .addEntry('js/app', ['./assets/js/app.js'].concat(fixes))
+    .addStyleEntry('css/app', './assets/css/app.scss')
     .cleanupOutputBeforeBuild()
-    .enableSourceMaps(!Encore.isProduction())
     .enableSassLoader()
+    .enablePostCssLoader()
     .autoProvidejQuery()
-    .addEntry('js/app', !Encore.isProduction() ? ['./hmr.js', './js/app.js'] : './js/app.js')
-    .addStyleEntry('css/app', './css/app.scss')
-    .enablePostCssLoader();
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction());
 
-if (Encore.isProduction()) {
-    Encore.setPublicPath('/bundles/admin/build');
-    Encore.setManifestKeyPrefix('bundles/admin/build/');
-}
-
-module.exports = Encore.getWebpackConfig();
+let config = Encore.getWebpackConfig();
+config.plugins.push(
+    // https://github.com/mzgoddard/hard-source-webpack-plugin
+    new HardSourceWebpackPlugin()
+);
+module.exports = config;
