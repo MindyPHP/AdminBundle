@@ -8,7 +8,7 @@
   }
 
   &__icon {
-    @extend .icon;
+    @extend .b-icon;
 
     transition: all 0.2s ease;
     font-style: normal;
@@ -16,18 +16,18 @@
     font-size: 1.2em;
     color: flexy-color();
     flex-basis: 24px;
+    width: 24px;
     display: block;
   }
 
   &__link {
-    padding: 0.8em 0.4rem;
+    padding: 0.6em 0.4rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     color: flexy-color(dark);
     font-size: 1em;
     font-weight: 500;
-    @include antialias;
     text-decoration: none;
     transition: all 0.2s ease;
 
@@ -50,7 +50,13 @@
   &__item {
     display: block;
     position: relative;
-    border-bottom: 1px solid rgba(#000, 0.05);
+    border-radius: $flexy-theme-border-radius;
+
+    &:hover {
+      background: {
+        color: #fff;
+      }
+    }
 
     &_sub {
       &:hover {
