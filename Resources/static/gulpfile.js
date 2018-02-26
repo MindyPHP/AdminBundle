@@ -15,7 +15,7 @@ let del = require('del');
 let paths = {
     src: {
         fonts: [
-            './node_modules/flexy-icon/fonts/*.{ttf,eot,woff,woff2,svg}',
+            './node_modules/material-design-icons/iconfont/*.{ttf,eot,woff,woff2,svg}',
             './node_modules/clearsans/*.{ttf,eot,woff,woff2,svg}',
             './assets/fonts/**/*.{ttf,eot,woff,woff2,svg}'
         ],

@@ -1,9 +1,9 @@
 @import '~clearsans/clearsans';
+@import 'block/icon';
 
+@import '~flexy-framework/src/defaults';
 @import 'settings';
-
-@import '~flexy-framework/flexy/flexy';
-@import '~flexy-framework/flexy/theme/default/index';
+@import '~flexy-framework/src/flexy';
 
 @import 'component/noty';
 @import 'component/colorpicker';

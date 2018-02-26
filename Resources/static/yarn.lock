@@ -2656,66 +2656,9 @@ flagged-respawn@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/flagged-respawn/-/flagged-respawn-1.0.0.tgz#4e79ae9b2eb38bf86b3bb56bf3e0a56aa5fcabd7"
 
-flexy-block-grid@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/flexy-block-grid/-/flexy-block-grid-1.0.0.tgz#da0e18fe6615076c84fca5162588e2b3c65a0014"
-  dependencies:
-    flexy-breakpoint "1.0.1"
-    flexy-device "^1.0.1"
-    flexy-functions "^1.0.3"
-
-flexy-breakpoint@1.0.1, flexy-breakpoint@^1.0.0, flexy-breakpoint@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/flexy-breakpoint/-/flexy-breakpoint-1.0.1.tgz#16b1d866b55eb5942509a7a109ba0643070d80ec"
-  dependencies:
-    flexy-functions "1.0.3"
-
-flexy-device@1.0.1, flexy-device@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/flexy-device/-/flexy-device-1.0.1.tgz#d144a317c87cfe29a0525f0714c61d1f6433c9a6"
-  dependencies:
-    flexy-breakpoint "^1.0.0"
-    flexy-functions "1.0.3"
-
-flexy-flexgrid@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/flexy-flexgrid/-/flexy-flexgrid-1.0.1.tgz#ac2628a5a012b7e3fcef95a8ec9acae9b2048776"
-  dependencies:
-    flexy-breakpoint "^1.0.1"
-    flexy-functions "^1.0.3"
-
-flexy-framework@5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/flexy-framework/-/flexy-framework-5.0.6.tgz#c5557847dc8349c3672a27fd9c549808a2c60f01"
-  dependencies:
-    flexy-block-grid "^1.0.0"
-    flexy-breakpoint "^1.0.0"
-    flexy-device "1.0.1"
-    flexy-flexgrid "^1.0.1"
-    flexy-functions "^1.0.0"
-    flexy-icon "^2.0.0"
-    flexy-reset "1.0.2"
-    flexy-visibility "^1.0.0"
-    node-sass-tilde-importer "^1.0.1"
-
-flexy-functions@1.0.3, flexy-functions@^1.0.0, flexy-functions@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/flexy-functions/-/flexy-functions-1.0.3.tgz#44f5e66a8710cfc20360fc03325f2ebdb3805c25"
-
-flexy-icon@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/flexy-icon/-/flexy-icon-2.0.1.tgz#c05047b78057285e86ec1760ed32ec9f0e0ffd12"
-
-flexy-reset@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/flexy-reset/-/flexy-reset-1.0.2.tgz#83bc070e420a2ad16b35583a338b0dbd6d55f628"
-
-flexy-visibility@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/flexy-visibility/-/flexy-visibility-1.0.0.tgz#a3eefb2d8771da476c851465a5b70b3222a98e6f"
-  dependencies:
-    flexy-breakpoint "^1.0.0"
-    flexy-functions "^1.0.3"
+flexy-framework@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/flexy-framework/-/flexy-framework-6.0.1.tgz#0b20a0d05b328d2263f33c580f14f8aee3207899"
 
 flush-write-stream@^1.0.0, flush-write-stream@^1.0.2:
   version "1.0.2"

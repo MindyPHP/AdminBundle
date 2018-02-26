@@ -3,15 +3,15 @@
         <div class="b-breadcrumb__item">
             <a class="b-breadcrumb__item b-breadcrumb__item_link"
                href="{{ url('admin_dashboard_index') }}">
-                <i class="icon home"></i>
+                <i class="b-icon">home</i>
             </a>
         </div>
 
-        <div class="b-breadcrumb__symbol">
-            <i class="icon angle right"></i>
-        </div>
-
         {% for bc in breadcrumbs %}
+            <div class="b-breadcrumb__symbol">
+                <i class="b-icon">keyboard_arrow_right</i>
+            </div>
+
             {% if loop.last %}
                 <span class="b-breadcrumb__item">{{ bc.name }}</span>
             {% else %}
@@ -22,9 +22,6 @@
                     {% else %}
                         {{ bc.name }}
                     {% endif %}
-                </div>
-                <div class="b-breadcrumb__symbol">
-                    <i class="icon angle right"></i>
                 </div>
             {% endif %}
         {% endfor %}

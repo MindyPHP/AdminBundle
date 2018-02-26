@@ -1,8 +1,5 @@
-$flexy-font: 'Clear Sans', Helvetica, Arial, sans-serif;
-$flexy-body-font-size: 15px;
-$flexy-body-text-color: #353535;
-$flexy-theme-colors: (
-  default: #2196f3,
+$flexy-font: 'Clear Sans', $flexy-default-font;
+$flexy-colors: map-merge($flexy-default-colors, (
   dark: #3e4b5b,
   brown: darken(#96a8b2, 25%),
   gray: rgba(#5a637e, 0.49),
@@ -11,6 +8,4 @@ $flexy-theme-colors: (
   error: #dd162d,
   success: #4caf50,
   primary: #2196f3
-);
-$flexy-block-divider-default-color: rgba(#000, 0.05);
-$flexy-block-input-focus-color: map-get($flexy-theme-colors, default);
+));
