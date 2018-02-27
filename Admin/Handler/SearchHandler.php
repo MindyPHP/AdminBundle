@@ -53,8 +53,8 @@ class SearchHandler implements AdminHandlerInterface
      */
     protected function getFields($qs)
     {
-        $fields = [];
         if (null === $this->fields) {
+            $fields = [];
             $modelFields = $qs->getModel()->getMeta()->getFields();
             $allowed = [
                 CharField::class,
@@ -68,7 +68,7 @@ class SearchHandler implements AdminHandlerInterface
             }
         }
 
-        return $fields;
+        return $this->fields;
     }
 
     /**
